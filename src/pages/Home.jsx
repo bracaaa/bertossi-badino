@@ -12,7 +12,6 @@ function Home() {
   return (
     <>
       <Hero />
-
       {/* Servicios */}
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
