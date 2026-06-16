@@ -1,36 +1,79 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logoImg from "../assets/logo.png";
 
 function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const links = [
     { to: "/", label: "Inicio" },
-    { to: "/maquinarias", label: "Maquinarias/Productos" },
+    { to: "/maquinarias", label: "Maquinarias" },
     { to: "/nosotros", label: "Nosotros" },
     { to: "/contacto", label: "Contacto" },
   ];
 
   return (
-    <header className="bg-green-800 text-white shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <span className="text-white text-xl font-extrabold tracking-tight drop-shadow">Bertossi<span className="text-yellow-400">&</span>Badino</span>
+    <header
+      className="sticky top-0 z-50 transition-all duration-300"
+      style={{
+        backgroundColor: "var(--color-campo)",
+        boxShadow: scrolled ? "0 4px 32px rgba(0,0,0,0.4)" : "none",
+      }}
+    >
+      {/* Gold accent stripe */}
+      <div className="h-[2px]" style={{ backgroundColor: "var(--color-dorado)" }} />
+
+      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        {/* Brand */}
+        <Link to="/" className="flex items-center gap-3 group">
+          <div
+            className="w-[2px] rounded-full transition-all duration-300 group-hover:h-11"
+            style={{
+              height: "36px",
+              backgroundColor: "var(--color-dorado)",
+            }}
+          />
+          <div className="leading-none select-none">
+            <p
+              className="text-white leading-none"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "22px",
+                letterSpacing: "0.1em",
+              }}
+            >
+              Bertossi <span style={{ color: "var(--color-dorado)" }}>&amp;</span> Badino
+            </p>
+            <p
+              className="mt-0.5 leading-none"
+              style={{
+                fontFamily: "var(--font-label)",
+                fontSize: "8.5px",
+                letterSpacing: "0.28em",
+                color: "rgba(255,255,255,0.38)",
+                textTransform: "uppercase",
+              }}
+            >
+              Maquinaria Agrícola · El Tío, Cba.
+            </p>
+          </div>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
               end={l.to === "/"}
               className={({ isActive }) =>
-                `text-sm font-semibold uppercase tracking-wider transition-colors hover:text-yellow-400 ${
-                  isActive ? "text-yellow-400 border-b-2 border-yellow-400 pb-0.5" : "text-white"
-                }`
+                `bb-nav-link${isActive ? " active" : ""}`
               }
             >
               {l.label}
@@ -38,7 +81,8 @@ function Navbar() {
           ))}
           <Link
             to="/contacto"
-            className="ml-2 bg-yellow-400 text-green-900 px-4 py-2 rounded-full text-sm font-bold hover:bg-yellow-300 transition-colors"
+            className="ml-2 btn-primary"
+            style={{ padding: "10px 22px", fontSize: "10px" }}
           >
             Consultar
           </Link>
@@ -46,25 +90,34 @@ function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-white focus:outline-none p-1 flex flex-col gap-[5px]"
           onClick={() => setMenuAbierto(!menuAbierto)}
           aria-label="Abrir menú"
         >
-          {menuAbierto ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
+          <span
+            className="block w-5 h-[1.5px] bg-current origin-center transition-transform duration-300"
+            style={{ transform: menuAbierto ? "translateY(6.5px) rotate(45deg)" : "none" }}
+          />
+          <span
+            className="block w-5 h-[1.5px] bg-current transition-opacity duration-300"
+            style={{ opacity: menuAbierto ? 0 : 1 }}
+          />
+          <span
+            className="block w-5 h-[1.5px] bg-current origin-center transition-transform duration-300"
+            style={{ transform: menuAbierto ? "translateY(-6.5px) rotate(-45deg)" : "none" }}
+          />
         </button>
       </div>
 
       {/* Mobile menu */}
-      {menuAbierto && (
-        <div className="md:hidden bg-green-900 px-4 pb-4 flex flex-col gap-3">
+      <div
+        className="md:hidden overflow-hidden transition-all duration-300"
+        style={{
+          maxHeight: menuAbierto ? "400px" : "0",
+          backgroundColor: "#0D1F10",
+        }}
+      >
+        <div className="px-6 py-4 flex flex-col">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -72,16 +125,18 @@ function Navbar() {
               end={l.to === "/"}
               onClick={() => setMenuAbierto(false)}
               className={({ isActive }) =>
-                `text-sm font-semibold uppercase tracking-wider py-2 border-b border-green-700 ${
-                  isActive ? "text-yellow-400" : "text-white"
+                `py-3.5 flex items-center justify-between border-b ${
+                  isActive ? "bb-nav-link active" : "bb-nav-link"
                 }`
               }
+              style={{ borderBottomColor: "rgba(255,255,255,0.07)" }}
             >
               {l.label}
+              <span style={{ color: "var(--color-dorado)", fontSize: "12px" }}>→</span>
             </NavLink>
           ))}
         </div>
-      )}
+      </div>
     </header>
   );
 }

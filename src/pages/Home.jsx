@@ -6,20 +6,50 @@ import ContactoSeccion from "../components/ContactoSeccion";
 import { maquinas } from "../data/maquinas";
 import { servicios } from "../data/servicios";
 
+function SectionLabel({ children }) {
+  return (
+    <div className="flex items-center gap-3 mb-3">
+      <div className="h-px w-8" style={{ backgroundColor: "var(--color-dorado)", opacity: 0.7 }} />
+      <span
+        style={{
+          fontFamily: "var(--font-label)",
+          fontSize: "10px",
+          letterSpacing: "0.3em",
+          textTransform: "uppercase",
+          color: "var(--color-dorado)",
+        }}
+      >
+        {children}
+      </span>
+    </div>
+  );
+}
+
 function Home() {
   const destacados = maquinas.filter((m) => m.destacado);
 
   return (
     <>
       <Hero />
+
       {/* Servicios */}
-      <section className="py-20 px-6 bg-gray-50">
+      <section className="py-24 px-6" style={{ backgroundColor: "var(--color-roto)" }}>
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-green-700 font-semibold uppercase tracking-widest text-sm">¿Por qué elegirnos?</span>
-            <h2 className="text-4xl font-extrabold text-gray-800 mt-2">Equipamiento y soluciones agrícolas</h2>
+          <div className="mb-12">
+            <SectionLabel>¿Por qué elegirnos?</SectionLabel>
+            <h2
+              className="leading-none"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(2rem, 5vw, 3.2rem)",
+                letterSpacing: "0.04em",
+                color: "var(--color-carbon)",
+              }}
+            >
+              Equipamiento y soluciones agrícolas
+            </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {servicios.map((s) => (
               <ServiceCard key={s.titulo} servicio={s} />
             ))}
@@ -27,22 +57,36 @@ function Home() {
         </div>
       </section>
 
-      {/* Destacados */}
-      <section className="py-12 px-6">
+      {/* Thin gold divider */}
+      <div className="h-px mx-6 md:mx-24" style={{ background: "linear-gradient(to right, transparent, var(--color-dorado), transparent)", opacity: 0.35 }} />
+
+      {/* Maquinarias destacadas */}
+      <section className="py-24 px-6" style={{ backgroundColor: "var(--color-crema)" }}>
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
             <div>
-              <span className="text-green-700 font-semibold uppercase tracking-widest text-xs">Catálogo</span>
-              <h2 className="text-2xl font-extrabold text-gray-800 mt-1">Maquinarias destacadas</h2>
+              <SectionLabel>Catálogo</SectionLabel>
+              <h2
+                className="leading-none"
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(2rem, 5vw, 3.2rem)",
+                  letterSpacing: "0.04em",
+                  color: "var(--color-carbon)",
+                }}
+              >
+                Maquinarias destacadas
+              </h2>
             </div>
             <Link
               to="/maquinarias"
-              className="bg-green-700 hover:bg-green-600 text-white px-5 py-2 rounded-full font-semibold transition-colors whitespace-nowrap text-sm"
+              className="btn-ghost-dark shrink-0"
+              style={{ alignSelf: "flex-end" }}
             >
               Ver todo el catálogo →
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {destacados.map((m) => (
               <ProductCard key={m.id} maquina={m} />
             ))}
@@ -51,17 +95,57 @@ function Home() {
       </section>
 
       {/* Banner financiación */}
-      <section className="bg-yellow-400 py-12 px-6">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <section
+        className="grain-section py-20 px-6"
+        style={{ backgroundColor: "var(--color-tierra)" }}
+      >
+        {/* Decorative diagonal lines */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          aria-hidden="true"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 28px)",
+          }}
+        />
+        <div className="relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
-            <h3 className="text-3xl font-extrabold text-green-900">Financiación a tu medida</h3>
-            <p className="text-green-800 mt-2">
-              Consultanos sin compromiso.
+            <p
+              style={{
+                fontFamily: "var(--font-label)",
+                fontSize: "9.5px",
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.5)",
+                marginBottom: "8px",
+              }}
+            >
+              Facilidades de pago
+            </p>
+            <h3
+              className="text-white leading-none"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
+                letterSpacing: "0.04em",
+              }}
+            >
+              Financiación a tu medida
+            </h3>
+            <p
+              className="mt-3"
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "1.05rem",
+                color: "rgba(255,255,255,0.6)",
+              }}
+            >
+              Consultanos sin compromiso. Planes flexibles para cada productor.
             </p>
           </div>
           <Link
             to="/contacto"
-            className="bg-green-800 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors whitespace-nowrap shadow-lg"
+            className="btn-primary shrink-0"
           >
             Consultar financiación
           </Link>

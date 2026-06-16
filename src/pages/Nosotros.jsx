@@ -1,58 +1,161 @@
 import { Link } from "react-router-dom";
 import equipoImg from "../assets/equipo.jpg.jpeg";
 
+const statItems = [
+  { valor: "---", label: "Año de fundación" },
+  { valor: "+---", label: "Máquinas vendidas" },
+  { valor: "+---", label: "Clientes activos" },
+  { valor: "4", label: "Personas en el equipo" },
+];
+
+const teamMembers = [
+  { nombre: "Mauricio Badino", rol: "Rol" },
+  { nombre: "Franco Mongilardi", rol: "Rol" },
+  { nombre: "Pedro Badino", rol: "Rol" },
+  { nombre: "Julio Cabrera", rol: "Rol" },
+];
+
 function Nosotros() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ backgroundColor: "var(--color-roto)" }}>
+
       {/* Hero */}
       <div
-        className="relative py-30 px-6 text-white text-center"
+        className="grain-section relative py-32 px-6 text-white text-center overflow-hidden"
         style={{
           backgroundImage: `url(${equipoImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center 57%",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-green-900/80 via-green-900/60 to-green-900/95" />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to bottom, rgba(27,58,32,0.88) 0%, rgba(27,58,32,0.7) 50%, rgba(27,58,32,0.95) 100%)" }}
+        />
         <div className="relative z-10 max-w-3xl mx-auto">
-          <h1 className="text-5xl font-extrabold mb-4">Quiénes Somos</h1>
-          <p className="text-green-200 text-xl">
-            Más de 30 años acompañando al productor argentino con maquinaria, servicio y confianza.
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="h-px w-10" style={{ backgroundColor: "var(--color-dorado)", opacity: 0.7 }} />
+            <span
+              style={{
+                fontFamily: "var(--font-label)",
+                fontSize: "10px",
+                letterSpacing: "0.3em",
+                textTransform: "uppercase",
+                color: "var(--color-dorado)",
+              }}
+            >
+              Nuestra empresa
+            </span>
+            <div className="h-px w-10" style={{ backgroundColor: "var(--color-dorado)", opacity: 0.7 }} />
+          </div>
+          <h1
+            className="text-white leading-none mb-5"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(3rem, 8vw, 5.5rem)",
+              letterSpacing: "0.04em",
+            }}
+          >
+            Quiénes Somos
+          </h1>
+          <p
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "1.2rem",
+              color: "rgba(255,255,255,0.65)",
+              lineHeight: 1.7,
+            }}
+          >
+            Más de 30 años acompañando al productor argentino con maquinaria,
+            servicio y confianza.
           </p>
         </div>
       </div>
 
-      {/* Historia */}
-      <section className="py-20 px-6 max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {/* Historia + Stats */}
+      <section className="py-24 px-6" style={{ backgroundColor: "var(--color-roto)" }}>
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+          {/* Text */}
           <div>
-            <span className="text-green-700 font-semibold uppercase tracking-widest text-sm">Nuestra historia</span>
-            <h2 className="text-3xl font-extrabold text-gray-800 mt-2 mb-4">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px w-8" style={{ backgroundColor: "var(--color-dorado)", opacity: 0.7 }} />
+              <span
+                style={{
+                  fontFamily: "var(--font-label)",
+                  fontSize: "10px",
+                  letterSpacing: "0.3em",
+                  textTransform: "uppercase",
+                  color: "var(--color-dorado)",
+                }}
+              >
+                Nuestra historia
+              </span>
+            </div>
+            <h2
+              className="leading-none mb-6"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+                letterSpacing: "0.04em",
+                color: "var(--color-carbon)",
+              }}
+            >
               Desde ---, trabajando para el campo
             </h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            </p>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
             {[
-              { valor: "---", label: "Año de fundación" },
-              { valor: "+---", label: "Máquinas vendidas" },
-              { valor: "+---", label: "Clientes activos" },
-              { valor: "4", label: "Personas en el equipo" },
-            ].map((s) => (
+              "------------------------------------------------------------------------------------------------------------------------------",
+              "------------------------------------------------------------------------------------------------------------------------------",
+              "------------------------------------------------------------------------------------------------------------------------------",
+            ].map((p, i) => (
+              <p
+                key={i}
+                className="mb-4 last:mb-0"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "1.05rem",
+                  color: "#666",
+                  lineHeight: 1.75,
+                }}
+              >
+                {p}
+              </p>
+            ))}
+          </div>
+
+          {/* Stats grid */}
+          <div className="grid grid-cols-2 gap-3">
+            {statItems.map((s) => (
               <div
                 key={s.label}
-                className="bg-green-700 text-white rounded-2xl p-6 text-center shadow-lg"
+                className="p-6 text-center"
+                style={{
+                  backgroundColor: "var(--color-campo)",
+                  borderBottom: "3px solid var(--color-dorado)",
+                }}
               >
-                <p className="text-4xl font-extrabold text-yellow-400">{s.valor}</p>
-                <p className="text-sm mt-1 text-green-100">{s.label}</p>
+                <p
+                  className="leading-none mb-2"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "2.8rem",
+                    color: "var(--color-dorado)",
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  {s.valor}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "var(--font-label)",
+                    fontSize: "9px",
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: "rgba(255,255,255,0.5)",
+                  }}
+                >
+                  {s.label}
+                </p>
               </div>
             ))}
           </div>
@@ -60,25 +163,80 @@ function Nosotros() {
       </section>
 
       {/* Equipo */}
-      <section className="py-20 px-6">
+      <section className="py-24 px-6" style={{ backgroundColor: "var(--color-crema)" }}>
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-green-700 font-semibold uppercase tracking-widest text-sm">Las personas detrás</span>
-            <h2 className="text-3xl font-extrabold text-gray-800 mt-2">Nuestro equipo</h2>
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="h-px w-8" style={{ backgroundColor: "var(--color-dorado)", opacity: 0.7 }} />
+              <span
+                style={{
+                  fontFamily: "var(--font-label)",
+                  fontSize: "10px",
+                  letterSpacing: "0.3em",
+                  textTransform: "uppercase",
+                  color: "var(--color-dorado)",
+                }}
+              >
+                Las personas detrás
+              </span>
+            </div>
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(2rem, 5vw, 3rem)",
+                letterSpacing: "0.04em",
+                color: "var(--color-carbon)",
+              }}
+            >
+              Nuestro equipo
+            </h2>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-            {[
-              { nombre: "Mauricio Badino", rol: "Rol" },
-              { nombre: "Franco Mongilardi", rol: "Rol" },
-              { nombre: "Pedro Badino", rol: "Rol" },
-              { nombre: "Julio Cabrera", rol: "Rol" },
-            ].map((p, i) => (
-              <div key={i} className="text-center bg-white rounded-2xl p-6 shadow hover:shadow-md transition-all">
-                <div className="w-16 h-16 rounded-full bg-green-100 mx-auto mb-3 overflow-hidden">
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
+            {teamMembers.map((p, i) => (
+              <div
+                key={i}
+                className="text-center group"
+                style={{
+                  backgroundColor: "var(--color-roto)",
+                  padding: "24px 16px",
+                  borderBottom: "2px solid transparent",
+                  transition: "border-color 0.3s",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderBottomColor = "var(--color-dorado)"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderBottomColor = "transparent"; }}
+              >
+                <div
+                  className="w-16 h-16 mx-auto mb-4 overflow-hidden"
+                  style={{
+                    border: "2px solid rgba(200,146,26,0.3)",
+                    borderRadius: "2px",
+                  }}
+                >
                   <img src={equipoImg} alt={p.nombre} className="w-full h-full object-cover" />
                 </div>
-                <p className="font-bold text-gray-800">{p.nombre}</p>
-                <p className="text-sm text-green-700">{p.rol}</p>
+                <p
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "1.1rem",
+                    letterSpacing: "0.04em",
+                    color: "var(--color-carbon)",
+                  }}
+                >
+                  {p.nombre}
+                </p>
+                <p
+                  className="mt-1"
+                  style={{
+                    fontFamily: "var(--font-label)",
+                    fontSize: "9px",
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: "var(--color-dorado)",
+                  }}
+                >
+                  {p.rol}
+                </p>
               </div>
             ))}
           </div>
@@ -86,13 +244,31 @@ function Nosotros() {
       </section>
 
       {/* CTA */}
-      <div className="bg-green-800 text-white py-14 px-6 text-center">
-        <h3 className="text-3xl font-extrabold mb-4">Conectá con nosotros</h3>
-        <p className="text-green-200 mb-8">Visitanos en nuestro espacio o consultanos por WhatsApp.</p>
-        <Link
-          to="/contacto"
-          className="bg-yellow-400 text-green-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all"
+      <div
+        className="grain-section py-20 px-6 text-center"
+        style={{ backgroundColor: "var(--color-campo)" }}
+      >
+        <h3
+          className="text-white leading-none mb-4"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
+            letterSpacing: "0.04em",
+          }}
         >
+          Conectá con nosotros
+        </h3>
+        <p
+          className="mb-8"
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "1.1rem",
+            color: "rgba(255,255,255,0.6)",
+          }}
+        >
+          Visitanos o consultanos por WhatsApp. Estamos para ayudarte.
+        </p>
+        <Link to="/contacto" className="btn-primary">
           Contactanos
         </Link>
       </div>
