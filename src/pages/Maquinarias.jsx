@@ -158,7 +158,7 @@ function Maquinarias() {
                 backgroundColor: estadoFiltro === e
                   ? "var(--color-dorado)"
                   : "transparent",
-                color: estadoFiltro === e ? "var(--color-campo)" : "rgba(0,0,0,0.45)",
+                color: estadoFiltro === e ? "white" : "rgba(0,0,0,0.45)",
               }}
             >
               {e}

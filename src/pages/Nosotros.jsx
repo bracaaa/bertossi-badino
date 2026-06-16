@@ -30,7 +30,7 @@ function Nosotros() {
       >
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, rgba(27,58,32,0.88) 0%, rgba(27,58,32,0.7) 50%, rgba(27,58,32,0.95) 100%)" }}
+          style={{ background: "linear-gradient(to bottom, rgba(26,26,26,0.88) 0%, rgba(26,26,26,0.7) 50%, rgba(26,26,26,0.95) 100%)" }}
         />
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-5">

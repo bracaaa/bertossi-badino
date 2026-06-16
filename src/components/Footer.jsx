@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import iconPin from "../assets/icons/pin.png";
-import iconPhone from "../assets/icons/phone.png";
-import iconClock from "../assets/icons/clock-11.png";
+import iconPin from "../assets/icons/icons-rojos/pin.png";
+import iconPhone from "../assets/icons/icons-rojos/phone.png";
+import iconClock from "../assets/icons/icons-rojos/clock-11.png";
 
 const navLinks = [
   { to: "/", label: "Inicio" },
@@ -18,7 +18,7 @@ const contactInfo = [
 
 function Footer() {
   return (
-    <footer style={{ backgroundColor: "#0D1F10", color: "#9CA89D" }}>
+    <footer style={{ backgroundColor: "#111111", color: "#9CA89D" }}>
       {/* Gold top accent */}
       <div className="h-[2px]" style={{ background: "linear-gradient(to right, var(--color-dorado), transparent 60%)" }} />
 
@@ -125,8 +125,8 @@ function Footer() {
                 <div
                   className="shrink-0 w-8 h-8 flex items-center justify-center mt-0.5"
                   style={{
-                    backgroundColor: "rgba(200,146,26,0.12)",
-                    border: "1px solid rgba(200,146,26,0.2)",
+                    backgroundColor: "rgba(196,26,26,0.12)",
+                    border: "1px solid rgba(196,26,26,0.2)",
                     borderRadius: "2px",
                   }}
                 >

@@ -23,8 +23,8 @@ function ServiceCard({ servicio }) {
       <div
         className="mb-5 inline-flex items-center justify-center w-12 h-12"
         style={{
-          backgroundColor: "var(--color-crema)",
-          border: "1px solid rgba(200,146,26,0.25)",
+          backgroundColor: "rgba(196,26,26,0.08)",
+          border: "1px solid rgba(196,26,26,0.2)",
         }}
       >
         {imagen ? (

@@ -1,7 +1,7 @@
-import llaveImg from "../assets/icons/wrench.png";
-import camionImg from "../assets/icons/truck.png";
-import tarjetaImg from "../assets/icons/credit-card.png";
-import billeteImg from "../assets/icons/money.png";
+import llaveImg from "../assets/icons/icons-rojos/wrench.png";
+import camionImg from "../assets/icons/icons-rojos/truck.png";
+import tarjetaImg from "../assets/icons/icons-rojos/credit-card.png";
+import billeteImg from "../assets/icons/icons-rojos/money.png";
 
 export const servicios = [
   {

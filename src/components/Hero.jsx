@@ -24,7 +24,7 @@ function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(105deg, rgba(27,58,32,0.96) 0%, rgba(27,58,32,0.82) 55%, rgba(27,58,32,0.55) 100%)",
+            "linear-gradient(105deg, rgba(26,26,26,0.97) 0%, rgba(26,26,26,0.85) 55%, rgba(26,26,26,0.55) 100%)",
         }}
       />
 
@@ -91,7 +91,7 @@ function Hero() {
         className="relative z-10"
         style={{
           borderTop: "1px solid rgba(255, 255, 255, 0.24)",
-          backgroundColor: "rgba(13, 31, 16, 0.85)",
+          backgroundColor: "rgba(10, 10, 10, 0.88)",
           backdropFilter: "blur(8px)",
         }}
       >

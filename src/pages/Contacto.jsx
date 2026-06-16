@@ -1,7 +1,7 @@
 import { useState } from "react";
-import iconPin from "../assets/icons/pin.png";
-import iconPhone from "../assets/icons/phone.png";
-import iconClock from "../assets/icons/clock-11.png";
+import iconPin from "../assets/icons/icons-rojos/pin.png";
+import iconPhone from "../assets/icons/icons-rojos/phone.png";
+import iconClock from "../assets/icons/icons-rojos/clock-11.png";
 
 const inputStyle = {
   width: "100%",

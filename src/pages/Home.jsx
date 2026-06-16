@@ -97,7 +97,7 @@ function Home() {
       {/* Banner financiación */}
       <section
         className="grain-section py-20 px-6"
-        style={{ backgroundColor: "var(--color-tierra)" }}
+        style={{ backgroundColor: "var(--color-campo)" }}
       >
         {/* Decorative diagonal lines */}
         <div

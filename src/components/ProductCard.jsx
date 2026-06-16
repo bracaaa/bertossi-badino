@@ -14,7 +14,7 @@ function ProductCard({ maquina }) {
           : "0 2px 12px rgba(0,0,0,0.07)",
         transform: hovered ? "translateY(-4px)" : "translateY(0)",
         border: hovered
-          ? "1px solid rgba(200,146,26,0.45)"
+          ? "1px solid rgba(196,26,26,0.45)"
           : "1px solid rgba(0,0,0,0.07)",
         borderRadius: "4px",
         transition: "all 0.3s cubic-bezier(0.16,1,0.3,1)",
@@ -34,7 +34,7 @@ function ProductCard({ maquina }) {
         <div
           className="absolute inset-0 transition-opacity duration-300"
           style={{
-            background: "linear-gradient(to top, rgba(27,58,32,0.55) 0%, transparent 60%)",
+            background: "linear-gradient(to top, rgba(20,20,20,0.6) 0%, transparent 60%)",
             opacity: hovered ? 1 : 0.4,
           }}
         />
@@ -48,7 +48,7 @@ function ProductCard({ maquina }) {
             letterSpacing: "0.2em",
             textTransform: "uppercase",
             backgroundColor: estado === "Nuevo" ? "var(--color-dorado)" : "rgba(255,255,255,0.9)",
-            color: estado === "Nuevo" ? "var(--color-campo)" : "var(--color-tierra)",
+            color: estado === "Nuevo" ? "white" : "#333",
             borderRadius: "2px",
             fontWeight: 500,
           }}
