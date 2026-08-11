@@ -1,7 +1,9 @@
+import { WP_NUMBER } from "../config";
+
 function WpBoton() {
   return (
     <a
-      href="https://wa.me/+5493576440800?text=Hola,%20me%20interesa%20consultar%20sobre%20maquinaria%20agrícola"
+      href={`https://wa.me/${WP_NUMBER}?text=Hola,%20me%20interesa%20consultar%20sobre%20maquinaria%20agrícola`}
       target="_blank"
       rel="noreferrer"
       title="Hablar por WhatsApp"

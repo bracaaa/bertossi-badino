@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { WP_NUMBER } from "../config";
 
 function ContactoSeccion() {
   return (
@@ -74,7 +75,7 @@ function ContactoSeccion() {
             Contactar un asesor
           </Link>
           <a
-            href="https://wa.me/5493576440800"
+            href={`https://wa.me/${WP_NUMBER}`}
             target="_blank"
             rel="noreferrer"
             className="btn-ghost flex items-center justify-center gap-2"

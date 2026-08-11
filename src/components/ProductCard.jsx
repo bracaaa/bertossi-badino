@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { WP_NUMBER } from "../config";
 
 function ProductCard({ maquina }) {
   const { id, nombre, categoria, precio, estado, año, imagen } = maquina;
@@ -142,7 +143,7 @@ function ProductCard({ maquina }) {
             Ver detalle
           </Link>
           <a
-            href={`https://wa.me/5493576440800?text=Hola,%20me%20interesa%20el%20${encodeURIComponent(nombre)}`}
+            href={`https://wa.me/${WP_NUMBER}?text=Hola,%20me%20interesa%20el%20${encodeURIComponent(nombre)}`}
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center px-3 transition-colors duration-200"

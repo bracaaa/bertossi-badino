@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 import lugarImg from "../assets/lugar.png";
 
-const stats = [
-  { valor: "+30", label: "Años de experiencia" },
-  { valor: "+500", label: "Ventas realizadas" },
-  { valor: "+200", label: "Clientes activos" },
-  { valor: "100%", label: "Financiación disponible" },
-];
-
 function Hero() {
   return (
     <section className="grain-section relative text-white overflow-hidden">
@@ -29,7 +22,7 @@ function Hero() {
       />
 
       {/* Main content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 pt-20 pb-28 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 pt-24 pb-36 text-center">
 
         {/* Eyebrow */}
         <div className="animate-fade-up delay-1 flex items-center justify-center gap-3 mb-6">
@@ -71,7 +64,7 @@ function Hero() {
             color: "rgba(255,255,255,0.75)",
           }}
         >
-          Tractores, cosechadoras, sembradoras y más. Más de 30 años
+          Tractores, cosechadoras, sembradoras y más. Más de -- años
           acompañando al productor argentino con la mejor maquinaria agrícola.
         </p>
 
@@ -86,54 +79,6 @@ function Hero() {
         </div>
       </div>
 
-      {/* Stats bar */}
-      <div
-        className="relative z-10"
-        style={{
-          borderTop: "1px solid rgba(255, 255, 255, 0.24)",
-          backgroundColor: "rgba(13, 31, 16, 0.85)",
-          backdropFilter: "blur(8px)",
-        }}
-      >
-        <div className="max-w-4xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          {stats.map((s, i) => (
-            <div key={s.label} className={`animate-fade-up delay-${5 + i}`}>
-              <p
-                className="leading-none mb-1"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "2.4rem",
-                  color: "var(--color-dorado)",
-                  letterSpacing: "0.04em",
-                }}
-              >
-                {s.valor}
-              </p>
-              <p
-                style={{
-                  fontFamily: "var(--font-label)",
-                  fontSize: "9px",
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.45)",
-                }}
-              >
-                {s.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Diagonal cut at bottom */}
-      <div
-        className="absolute bottom-0 left-0 right-0 pointer-events-none"
-        style={{
-          height: "60px",
-          backgroundColor: "var(--color-roto)",
-          clipPath: "polygon(0 100%, 100% 0, 100% 100%)",
-        }}
-      />
     </section>
   );
 }

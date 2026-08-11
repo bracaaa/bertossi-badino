@@ -61,7 +61,7 @@ function Footer() {
               lineHeight: 1.7,
             }}
           >
-            Más de 30 años acompañando al productor argentino con maquinaria
+            Acompañando al productor argentino con maquinaria
             agrícola de calidad, servicio técnico y financiación a medida.
           </p>
         </div>

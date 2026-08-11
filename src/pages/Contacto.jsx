@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { WP_NUMBER } from "../config";
 import iconPin from "../assets/icons/pin.png";
 import iconPhone from "../assets/icons/phone.png";
 import iconClock from "../assets/icons/clock-11.png";
@@ -41,7 +42,7 @@ function Contacto() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const texto = `Hola! Mi nombre es ${form.nombre}. Teléfono: ${form.telefono}. Email: ${form.email}. Me interesa: ${form.interes}. Mensaje: ${form.mensaje}`;
-    window.open(`https://wa.me/5493576440800?text=${encodeURIComponent(texto)}`, "_blank");
+    window.open(`https://wa.me/${WP_NUMBER}?text=${encodeURIComponent(texto)}`, "_blank");
     setEnviado(true);
   };
 
@@ -219,11 +220,11 @@ function Contacto() {
                     <option value="">Seleccioná una opción...</option>
                     <option>Tractores</option>
                     <option>Cosechadoras</option>
-                    <option>Sembradoras</option>
-                    <option>Pulverizadoras</option>
+                    <option>Mixers</option>
+                    <option>Enbolsadoras</option>
+                    <option>Moledoras</option>
                     <option>Implementos</option>
                     <option>Repuestos</option>
-                    <option>Tasación de usados</option>
                     <option>Financiación</option>
                   </StyledInput>
                 </div>
